@@ -1,0 +1,521 @@
+/* Importação de fontes do Google Fonts (exemplo: Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #20B2AA; /* Verde-água */
+    --secondary-color: #4682B4; /* Azul aço */
+    --text-color: #333;
+    --light-bg: #f8f8f8;
+    --white: #fff;
+    --gray-light: #eee;
+    --gray-dark: #555;
+}
+
+/* Reset básico e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para o layout responsivo */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.2em;
+    color: var(--secondary-color);
+}
+
+.logo p {
+    margin: 0;
+    font-size: 0.8em;
+    color: var(--gray-dark);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none; /* Esconde por padrão em desktop */
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x800?text=Fundo+Clínica+Odontológica') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh; /* Altura mínima para o hero */
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+section:nth-of-type(even) { /* Para alternar cor de fundo entre seções */
+    background-color: var(--light-bg);
+}
+
+/* About Us Section */
+.about-section .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.about-section .about-content img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-section .about-content p {
+    flex: 1;
+    min-width: 300px; /* Garante que o texto não fique muito estreito */
+    font-size: 1.1em;
+}
+
+/* Services Section */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-item i {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    position: relative;
+    overflow: hidden; /* Para o carrosel */
+}
+
+.testimonial-carousel {
+    display: flex;
+    overflow-x: hidden; /* Esconde o excesso para o carrosel */
+    scroll-behavior: smooth;
+    margin-top: 40px;
+    padding-bottom: 20px; /* Espaço para as setas */
+}
+
+.testimonial-item {
+    flex: 0 0 100%; /* Cada item ocupa 100% da largura do contêiner */
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-right: 20px; /* Espaço entre os depoimentos */
+    box-sizing: border-box; /* Garante que padding e margin sejam incluídos na largura */
+}
+
+.testimonial-item p {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.testimonial-item h4 {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+
+/* Contact Section */
+.contact-section .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gray-light);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: auto;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-media a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.map-container {
+    margin-top: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .fa-heart {
+    color: #ff6b6b; /* Coração vermelho */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Esconde a navegação por padrão em mobile */
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    nav ul.active {
+        display: flex; /* Mostra quando o menu é ativado */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block; /* Mostra o hamburger em mobile */
+        align-self: flex-end; /* Alinha à direita no modo coluna */
+        margin-top: -50px; /* Ajusta a posição para ficar ao lado do logo */
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .about-section .about-content {
+        flex-direction: column;
+    }
+
+    .about-section .about-content img {
+        max-width: 100%;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .testimonial-item {
+        margin-right: 0; /* Remove o espaçamento lateral em mobile */
+    }
+
+    .carousel-btn {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .contact-section .contact-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-section {
+        padding: 100px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .logo h1 {
+        font-size: 1.8em;
+    }
+
+    .logo p {
+        font-size: 0.7em;
+    }
+}
